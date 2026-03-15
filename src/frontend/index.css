@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark ink + jade palette */
+    --background: 0.13 0.005 220;
+    --foreground: 0.93 0.01 220;
+
+    --card: 0.16 0.008 220;
+    --card-foreground: 0.93 0.01 220;
+
+    --popover: 0.16 0.008 220;
+    --popover-foreground: 0.93 0.01 220;
+
+    --primary: 0.75 0.18 162;
+    --primary-foreground: 0.1 0.02 162;
+
+    --secondary: 0.2 0.01 220;
+    --secondary-foreground: 0.85 0.01 220;
+
+    --muted: 0.19 0.008 220;
+    --muted-foreground: 0.55 0.015 220;
+
+    --accent: 0.75 0.18 162;
+    --accent-foreground: 0.1 0.02 162;
+
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.98 0.005 0;
+
+    --border: 0.22 0.01 220;
+    --input: 0.2 0.01 220;
+    --ring: 0.75 0.18 162;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar: 0.11 0.005 220;
+    --sidebar-foreground: 0.88 0.01 220;
+    --sidebar-primary: 0.75 0.18 162;
+    --sidebar-primary-foreground: 0.1 0.02 162;
+    --sidebar-accent: 0.17 0.008 220;
+    --sidebar-accent-foreground: 0.88 0.01 220;
+    --sidebar-border: 0.19 0.008 220;
+    --sidebar-ring: 0.75 0.18 162;
+
+    /* User bubble */
+    --user-bubble: 0.23 0.06 162;
+    --user-bubble-foreground: 0.9 0.05 162;
+
+    /* Chart */
+    --chart-1: 0.75 0.18 162;
+    --chart-2: 0.65 0.15 200;
+    --chart-3: 0.7 0.12 280;
+    --chart-4: 0.72 0.14 60;
+    --chart-5: 0.68 0.16 340;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply h-full;
+  }
+  body {
+    @apply bg-background text-foreground h-full font-body antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, oklch(0.18 0.04 162 / 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, oklch(0.15 0.03 200 / 0.25) 0%, transparent 50%);
+  }
+  #root {
+    @apply h-full;
+  }
+}
+
+/* Typing dots animation */
+@keyframes typing-dot {
+  0%, 60%, 100% { opacity: 0.2; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
+.typing-dot {
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.28 0.01 220);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.38 0.01 220);
+}
